@@ -29,7 +29,8 @@ jobs:
           "$SDKMANAGER" "platform-tools" "platforms;android-35" "build-tools;35.0.0" "ndk;21.4.7075529" "cmake;3.22.1"
       - name: Fetch Cocos2d-x v4
         run: |
-          git clone --branch v4 --depth 1 --recurse-submodules https://github.com/cocos2d/cocos2d-x.git cocos2d
+          git config --global url."https://github.com/".insteadOf git://github.com/
+          git clone --branch v4 --depth 1 https://github.com/cocos2d/cocos2d-x.git cocos2d
           git -C cocos2d submodule update --init --recursive
           sed -i "/android {/a\\    namespace 'org.cocos2dx.lib'" cocos2d/cocos/platform/android/libcocos2dx/build.gradle
       - name: Set up Gradle
