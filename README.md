@@ -1,46 +1,38 @@
 # Dynamic Dash
 
-An original rhythm-platformer project built with C++ and Cocos2d, targeting Android.
+An original rhythm-platformer project built with C++ and Cocos2d-x v4, targeting Android.
 
 > The game interface and in-game text will be in English. Development notes may be written in Portuguese.
 
 ## Project goals
 - Original platforming gameplay and level design
-- Cocos2d-based rendering and game loop
+- Cocos2d-x v4 rendering and game loop
 - Native C++ game systems
 - Local player save system
 - Android support, initially tested on Samsung Galaxy A04s
 - Official open-source mod launcher integration
-- Automated builds and public downloads through GitHub Actions and GitHub Releases
+- Public preview builds through GitHub Actions and GitHub Releases
 
-## Repository layout
-- `src/` — C++ game and gameplay systems
-- `include/` — public C++ headers
-- `assets/` — original images, audio, fonts and other game assets
-- `cocos2d/` — pinned Cocos2d engine dependency (to be added)
-- `android/` — Android application and platform integration
-- `tests/` — automated tests
-- `scripts/` — developer and build scripts
-- `.github/workflows/` — CI and build workflows
-- `docs/` — technical documentation
-- `builds/` — build metadata; generated binaries belong in Actions artifacts or Releases, not Git history
+## First playable prototype
+The Cocos2d-x application now has source implementations for:
+- Loading scene followed by the main menu
+- A separate level-selection screen with the original sample level **First Steps**
+- A playable auto-running cube section: tap to jump, avoid hazards, and reach 100%
+- Retry after a crash/completion and return to level selection
 
-## First prototype
-The native prototype models the flow from loading screen to main menu, then to a separate level-selection screen containing one sample level (`First Steps`). Selecting it enters the gameplay state. Automated tests cover this navigation flow. The visible Cocos2d screens and playable level are still pending.
+The Android project targets `arm64-v8a`, landscape orientation and Android API 23+. The first Cocos2d/Gradle build is being validated; do not consider an APK available until the Android workflow publishes one.
 
-## First scene
-The first scene is the loading screen. Its native state model starts at 0%, reports `Preparing game...`, clamps progress to 0–100%, and switches to `Ready!` when loading completes. The Cocos2d visual scene and Android app entry point will be connected when the engine and Android application layer are added.
+## Engine dependency
+Cocos2d-x v4 is fetched from the upstream `v4` branch into the ignored `cocos2d/` folder. See [Android build instructions](docs/ANDROID_BUILD.md). The engine's upstream license and notices are retained with the fetched dependency.
 
 ## Public preview releases
-Dynamic Dash is developed in the open. Users will be able to test published versions even when they are incomplete or experimental. The first release belongs to the **1.0 release line** and will be labeled **`1.0.0-alpha.1`** (Alpha 1 of version 1.0), not `0.1.0`. Later previews will use labels such as `1.0.0-alpha.2` and `1.0.0-beta.1`; the stable 1.0 release will be `1.0.0`. GitHub Releases will mark these previews as pre-releases, with changes and known issues documented. Development builds will also be shared through GitHub Actions artifacts.
-
-The first public alpha is planned to be an installable Android build with the loading screen, main menu, separate level-selection screen, and one playable level. It will be an early testing release, not a finished game.
+Dynamic Dash is developed in the open. Users will be able to test published versions even when incomplete or experimental. The first release belongs to the **1.0 release line** and will be labeled **`1.0.0-alpha.1`** (Alpha 1 of version 1.0). Later previews use `1.0.0-alpha.2`, `1.0.0-beta.1`, etc. All alpha/beta GitHub Releases will be marked as pre-releases and include known issues.
 
 ## Build status
-The initial workflow cross-compiles the native C++ core for Android `arm64-v8a` and uploads the shared library as a workflow artifact. This is **not yet an installable APK**. Android app packaging and Cocos2d integration are subsequent milestones.
+The existing native-core workflow builds the C++ state library and runs tests. A separate Android workflow builds the Cocos2d-x app and publishes a debug APK artifact when successful. A successful native-core build alone is not an installable game.
 
 ## Development
-The repository is the source of truth. Use `development` for ongoing work and merge tested changes into `main`.
+Use `development` for ongoing work. This Cocos2d integration is being developed on `feature/cocos2d-alpha` before merging.
 
 ## License
 See [LICENSE](LICENSE). Third-party engine code and assets retain their own licenses.
