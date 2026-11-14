@@ -32,9 +32,9 @@ The native prototype models the flow from loading screen to main menu, then to a
 The first scene is the loading screen. Its native state model starts at 0%, reports `Preparing game...`, clamps progress to 0–100%, and switches to `Ready!` when loading completes. The Cocos2d visual scene and Android app entry point will be connected when the engine and Android application layer are added.
 
 ## Public preview releases
-Dynamic Dash is intended to be an open development project. Users will be able to test published versions even when they are incomplete or experimental. These builds will be clearly labeled as **alpha**, **beta**, or **pre-release**, with known issues and changes documented. Development builds will be shared through GitHub Actions artifacts; milestone versions will be published as GitHub pre-releases. A pre-release is not a promise that the game is finished or stable.
+Dynamic Dash is developed in the open. Users will be able to test published versions even when they are incomplete or experimental. The first release belongs to the **1.0 release line** and will be labeled **`1.0.0-alpha.1`** (Alpha 1 of version 1.0), not `0.1.0`. Later previews will use labels such as `1.0.0-alpha.2` and `1.0.0-beta.1`; the stable 1.0 release will be `1.0.0`. GitHub Releases will mark these previews as pre-releases, with changes and known issues documented. Development builds will also be shared through GitHub Actions artifacts.
 
-The first public release is planned to be the first installable Android build that includes the initial menu, separate level-selection screen, and one playable level. It will be an early testing release, not a finished game.
+The first public alpha is planned to be an installable Android build with the loading screen, main menu, separate level-selection screen, and one playable level. It will be an early testing release, not a finished game.
 
 ## Build status
 The initial workflow cross-compiles the native C++ core for Android `arm64-v8a` and uploads the shared library as a workflow artifact. This is **not yet an installable APK**. Android app packaging and Cocos2d integration are subsequent milestones.
