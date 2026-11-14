@@ -10,8 +10,8 @@ An original rhythm-platformer project built with C++ and Cocos2d, targeting Andr
 - Native C++ game systems
 - Local player save system
 - Android support, initially tested on Samsung Galaxy A04s
-- Official open-source mod loader with a documented public API
-- Automated builds and downloadable artifacts through GitHub Actions
+- Official open-source mod launcher integration
+- Automated builds and public downloads through GitHub Actions and GitHub Releases
 
 ## Repository layout
 - `src/` — C++ game and gameplay systems
@@ -26,10 +26,15 @@ An original rhythm-platformer project built with C++ and Cocos2d, targeting Andr
 - `builds/` — build metadata; generated binaries belong in Actions artifacts or Releases, not Git history
 
 ## First prototype
-The native prototype now models the flow from loading screen to main menu, then to a separate level-selection screen containing one sample level (`First Steps`). Selecting it enters the gameplay state. Automated tests cover this navigation flow. The visible Cocos2d screens and playable level are still pending.
+The native prototype models the flow from loading screen to main menu, then to a separate level-selection screen containing one sample level (`First Steps`). Selecting it enters the gameplay state. Automated tests cover this navigation flow. The visible Cocos2d screens and playable level are still pending.
 
 ## First scene
 The first scene is the loading screen. Its native state model starts at 0%, reports `Preparing game...`, clamps progress to 0–100%, and switches to `Ready!` when loading completes. The Cocos2d visual scene and Android app entry point will be connected when the engine and Android application layer are added.
+
+## Public preview releases
+Dynamic Dash is intended to be an open development project. Users will be able to test published versions even when they are incomplete or experimental. These builds will be clearly labeled as **alpha**, **beta**, or **pre-release**, with known issues and changes documented. Development builds will be shared through GitHub Actions artifacts; milestone versions will be published as GitHub pre-releases. A pre-release is not a promise that the game is finished or stable.
+
+The first public release is planned to be the first installable Android build that includes the initial menu, separate level-selection screen, and one playable level. It will be an early testing release, not a finished game.
 
 ## Build status
 The initial workflow cross-compiles the native C++ core for Android `arm64-v8a` and uploads the shared library as a workflow artifact. This is **not yet an installable APK**. Android app packaging and Cocos2d integration are subsequent milestones.
