@@ -20,10 +20,10 @@
 - [ ] Implement playable player movement and the first level
 - [ ] Connect level selection to the playable level
 
-## Milestone 4 — First public preview release
+## Milestone 4 — First public preview: 1.0.0-alpha.1
 - [ ] Package the first installable Android APK
 - [ ] Include loading screen, main menu, separate level selection and one playable level
-- [ ] Publish as a clearly labeled alpha pre-release on GitHub
+- [ ] Publish GitHub Release `1.0.0-alpha.1`, marked as a pre-release
 - [ ] Add release notes, known issues, device requirements and checksums
 - [ ] Keep every published preview available for users to test
 
@@ -46,7 +46,6 @@
 - [ ] Publish mod development documentation and example mods
 
 ## Milestone 8 — Editor and ongoing releases
-- [ ] Level editor
 - [ ] Expand automated tests
-- [ ] Publish versioned alpha/beta pre-releases during development
-- [ ] Publish stable releases when milestones are ready
+- [ ] Publish `1.0.0-alpha.N` and `1.0.0-beta.N` previews during development
+- [ ] Publish stable `1.0.0` when the project is ready
