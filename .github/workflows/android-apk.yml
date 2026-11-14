@@ -24,12 +24,8 @@ jobs:
           java-version: '17'
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
-      - name: Install Android NDK
-        uses: android-actions/setup-ndk@v3
-        with:
-          ndk-version: 21.4.7075529
-      - name: Install CMake
-        run: sdkmanager "cmake;3.22.1"
+      - name: Install Android NDK and CMake
+        run: sdkmanager "ndk;21.4.7075529" "cmake;3.22.1"
       - name: Fetch Cocos2d-x v4
         run: |
           git clone --branch v4 --depth 1 --recurse-submodules https://github.com/cocos2d/cocos2d-x.git cocos2d
