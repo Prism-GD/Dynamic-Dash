@@ -1,7 +1,8 @@
 /build/
 /out/
 /cmake-build-*/
-/*.apk
+/cocos2d/
+*.apk
 *.aab
 *.so
 *.o
