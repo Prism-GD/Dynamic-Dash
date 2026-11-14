@@ -10,6 +10,7 @@ An original rhythm-platformer project built with C++ and Cocos2d, targeting Andr
 - Native C++ game systems
 - Local player save system
 - Android support, initially tested on Samsung Galaxy A04s
+- Official open-source mod loader with a documented public API
 - Automated builds and downloadable artifacts through GitHub Actions
 
 ## Repository layout
