@@ -23,7 +23,15 @@
 - [ ] Progress, best scores, coins, icons and settings
 - [ ] Save migration and corruption recovery
 
-## Milestone 5 — Editor and releases
+## Milestone 5 — Official mod loader
+- [ ] Define and version the public mod API
+- [ ] Add mod manifest and package format
+- [ ] Integrate a sandboxed scripting runtime
+- [ ] Add in-game mod manager (enable, disable, update, remove)
+- [ ] Add permission prompts and compatibility checks
+- [ ] Publish mod development documentation and example mods
+
+## Milestone 6 — Editor and releases
 - [ ] Level editor
 - [ ] Automated tests
 - [ ] Versioned APK releases
