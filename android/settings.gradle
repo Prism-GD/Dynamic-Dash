@@ -1,0 +1,5 @@
+pluginManagement { repositories { google(); mavenCentral(); gradlePluginPortal() } }
+dependencyResolutionManagement { repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS); repositories { google(); mavenCentral() } }
+rootProject.name='DynamicDash'
+include ':app', ':libcocos2dx'
+project(':libcocos2dx').projectDir=new File(settingsDir,'../cocos2d/cocos/platform/android/libcocos2dx')
