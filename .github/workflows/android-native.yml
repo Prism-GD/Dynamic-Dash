@@ -1,0 +1,41 @@
+name: Android Native Build
+
+on:
+  push:
+    branches: [main, development]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  android-arm64:
+    name: Build native core (Android arm64-v8a)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install CMake and Ninja
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake ninja-build
+      - name: Configure Android NDK build
+        run: |
+          NDK="$ANDROID_NDK_LATEST_HOME"
+          cmake -S . -B build/android-arm64 \
+            -G Ninja \
+            -DCMAKE_TOOLCHAIN_FILE="$NDK/build/cmake/android.toolchain.cmake" \
+            -DANDROID_ABI=arm64-v8a \
+            -DANDROID_PLATFORM=android-23 \
+            -DCMAKE_BUILD_TYPE=Release
+      - name: Compile native library
+        run: cmake --build build/android-arm64 --parallel 2
+      - name: Upload native build
+        uses: actions/upload-artifact@v4
+        with:
+          name: dynamic-dash-native-android-arm64
+          path: build/android-arm64/libdynamic_dash.so
+          if-no-files-found: error
+          retention-days: 14
