@@ -1,41 +1,24 @@
-# Official mod loader
+# Official mod launcher integration
 
-Dynamic Dash is an open-source game and will include an official mod loader maintained as part of the game project.
+Dynamic Dash will be open source. Its official mod launcher is a separate companion application connected to the game through a documented integration.
 
-## Goals
+## Responsibilities
 
-- Mods are installed and managed from inside the game.
-- A public, versioned API lets community developers extend supported game systems.
-- Mods declare their identity, version, API compatibility, dependencies and requested capabilities.
-- Players can enable, disable and remove mods without reinstalling the game.
-- The loader checks compatibility and explains failures instead of silently loading incompatible mods.
+- **Dynamic Dash:** runs the game and exposes supported extension points.
+- **Dynamic Dash Mod Launcher:** discovers, installs, updates and removes mods, then makes installed mods available to the game.
+- Mods add optional content and features; the base game must remain playable without them.
 
-## Initial package design
+## Integration goals
 
-A mod package will contain a manifest and its content/scripts. The manifest will define at least:
+- A stable, versioned interface between the game and the official launcher.
+- A documented mod package/manifest format with mod ID, name, version and compatible game/API versions.
+- Clear handling of missing files, incompatible mods and failed loads.
+- The launcher must not be required to start or play the unmodified base game.
 
-- unique mod identifier
-- display name and version
-- mod API version
-- supported game-version range
-- entry point
-- dependencies
-- requested capabilities/permissions
+## Mod scope
 
-The exact file format and runtime will be selected when the Android/Cocos2d application layer is ready.
-
-## Security principles
-
-- Mods must not receive unrestricted access to player files, network access or operating-system features.
-- The default mod format will use a sandboxed scripting runtime, not arbitrary native shared libraries.
-- Sensitive capabilities must be explicit and user-approved.
-- Invalid packages, dependency conflicts and API mismatches must be reported clearly.
-- The game must remain playable with all mods disabled.
-
-## Compatibility
-
-The loader API will be versioned independently from the game version. Breaking API changes require a new API version and migration notes. The loader must reject or disable incompatible mods safely.
+Mods exist to add more things to the game: for example additional levels, visual content, music, themes and supported gameplay extensions. The exact extension API will be designed alongside the game systems.
 
 ## Development status
 
-This document defines the direction, not a completed loader. The actual loader, in-game manager and scripting runtime have not yet been implemented. See [the roadmap](ROADMAP.md) for milestones.
+This is the intended architecture. The companion launcher and game integration are not implemented yet. The current prototype focuses on the initial menu, a separate level-selection screen and one sample level.
