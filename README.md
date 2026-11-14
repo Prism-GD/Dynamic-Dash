@@ -24,6 +24,9 @@ An original rhythm-platformer project built with C++ and Cocos2d, targeting Andr
 - `docs/` — technical documentation
 - `builds/` — build metadata; generated binaries belong in Actions artifacts or Releases, not Git history
 
+## First scene
+The first scene is the loading screen. Its native state model starts at 0%, reports `Preparing game...`, clamps progress to 0–100%, and switches to `Ready!` when loading completes. The Cocos2d visual scene and Android app entry point will be connected when the engine and Android application layer are added.
+
 ## Build status
 The initial workflow cross-compiles the native C++ core for Android `arm64-v8a` and uploads the shared library as a workflow artifact. This is **not yet an installable APK**. Android app packaging and Cocos2d integration are subsequent milestones.
 
