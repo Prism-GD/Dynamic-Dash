@@ -1,0 +1,49 @@
+name: Android Alpha APK
+
+on:
+  push:
+    branches: [feature/cocos2d-alpha, development]
+  pull_request:
+    branches: [development]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  android-apk:
+    name: Build Dynamic Dash APK (Cocos2d-x v4)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Dynamic Dash
+        uses: actions/checkout@v4
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+      - name: Install Android NDK
+        uses: android-actions/setup-ndk@v3
+        with:
+          ndk-version: 21.4.7075529
+      - name: Install CMake
+        run: sdkmanager "cmake;3.22.1"
+      - name: Fetch Cocos2d-x v4
+        run: |
+          git clone --branch v4 --depth 1 --recurse-submodules https://github.com/cocos2d/cocos2d-x.git cocos2d
+          git -C cocos2d submodule update --init --recursive
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
+      - name: Build debug APK
+        run: gradle -p android :app:assembleDebug --no-daemon
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: dynamic-dash-1.0.0-alpha.1-debug-arm64
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 30
