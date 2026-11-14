@@ -1,37 +1,34 @@
 # Development roadmap
 
-## Milestone 1 — Repository and native build
-- [x] Create central repository
-- [x] Add C++ native-core skeleton
-- [x] Add Android arm64-v8a CI workflow
-- [x] Verify successful native build and prototype tests
+## Milestone 1 — Repository and native core
+- [x] Create central repository and native C++ skeleton
+- [x] Add Android arm64-v8a native-core workflow
+- [x] Verify native-core build and prototype tests
 
-## Milestone 2 — Engine and Android app
-- [ ] Pin a compatible Cocos2d release/commit and document its license
-- [ ] Add Android application project and packaging
-- [ ] Launch a basic Cocos2d scene on Samsung Galaxy A04s
-- [ ] Produce installable debug APK artifacts
+## Milestone 2 — Cocos2d-x and Android app
+- [x] Select and pin Cocos2d-x v4 upstream engine line
+- [x] Add Cocos2d application entry point and Android Gradle project
+- [ ] Validate Cocos2d-x Android build in CI
+- [ ] Produce an installable debug APK artifact
+- [ ] Install and test on Samsung Galaxy A04s
 
 ## Milestone 3 — First playable prototype
-- [x] Define main-menu to level-selection navigation
-- [x] Add one selectable sample level (`First Steps`)
-- [x] Add automated tests for the prototype flow
-- [ ] Render the loading screen, main menu and level-selection screen in Cocos2d
-- [ ] Implement playable player movement and the first level
-- [ ] Connect level selection to the playable level
+- [x] Implement loading scene and main menu in Cocos2d
+- [x] Implement separate level-selection screen
+- [x] Implement first playable level, tap-to-jump, hazards and progress
+- [x] Add retry and return-to-level-select flows
+- [ ] Validate gameplay and touch controls on a physical Android device
 
 ## Milestone 4 — First public preview: 1.0.0-alpha.1
-- [ ] Package the first installable Android APK
-- [ ] Include loading screen, main menu, separate level selection and one playable level
-- [ ] Publish GitHub Release `1.0.0-alpha.1`, marked as a pre-release
-- [ ] Add release notes, known issues, device requirements and checksums
-- [ ] Keep every published preview available for users to test
+- [ ] Package and verify installable Android APK
+- [ ] Publish GitHub Release `1.0.0-alpha.1` as a pre-release
+- [ ] Add release notes, known issues, device requirements and checksum
+- [ ] Keep all published preview versions available
 
-## Milestone 5 — Gameplay
-- [ ] Player movement and physics
-- [ ] Collision and hazards
-- [ ] Level system and checkpoints
-- [ ] Audio timing and effects
+## Milestone 5 — Gameplay improvements
+- [ ] Add original music and synchronized obstacles
+- [ ] Improve collision/physics and add effects
+- [ ] Add more levels and difficulty progression
 
 ## Milestone 6 — Player data
 - [ ] Versioned local save format
@@ -41,11 +38,10 @@
 ## Milestone 7 — Official mod launcher integration
 - [ ] Define the game-to-launcher integration interface
 - [ ] Define and version the public mod API and package format
-- [ ] Make the game discover mods installed by the companion launcher
-- [ ] Support optional added levels, visuals, music and gameplay extensions
-- [ ] Publish mod development documentation and example mods
+- [ ] Discover optional content installed by the companion launcher
+- [ ] Publish mod documentation and example mods
 
 ## Milestone 8 — Editor and ongoing releases
 - [ ] Expand automated tests
 - [ ] Publish `1.0.0-alpha.N` and `1.0.0-beta.N` previews during development
-- [ ] Publish stable `1.0.0` when the project is ready
+- [ ] Publish stable `1.0.0` when ready
