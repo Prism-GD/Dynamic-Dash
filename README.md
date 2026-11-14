@@ -25,6 +25,9 @@ An original rhythm-platformer project built with C++ and Cocos2d, targeting Andr
 - `docs/` — technical documentation
 - `builds/` — build metadata; generated binaries belong in Actions artifacts or Releases, not Git history
 
+## First prototype
+The native prototype now models the flow from loading screen to main menu, then to a separate level-selection screen containing one sample level (`First Steps`). Selecting it enters the gameplay state. Automated tests cover this navigation flow. The visible Cocos2d screens and playable level are still pending.
+
 ## First scene
 The first scene is the loading screen. Its native state model starts at 0%, reports `Preparing game...`, clamps progress to 0–100%, and switches to `Ready!` when loading completes. The Cocos2d visual scene and Android app entry point will be connected when the engine and Android application layer are added.
 
